@@ -122,11 +122,11 @@ class _QuizScreenState extends State<QuizScreen> {
                     style: ButtonStyle(
                       backgroundColor: MaterialStatePropertyAll(
                         isPressed == true
-                            ? checkValue == index + 1
+                            ? checkValue == index
                                 ? checkValue ==
                                         Database.qa[pageNumber]["answer"]
-                                    ? Colors.green
-                                    : Colors.red
+                                    ? colorConstant.rightColor
+                                    : colorConstant.wrongColor
                                 : colorConstant.containerColor
                             : colorConstant.containerColor,
                       ),
