@@ -11,16 +11,23 @@ class QuizScreen extends StatefulWidget {
 }
 
 class _QuizScreenState extends State<QuizScreen> {
+  String next = "next";
+  void nextButton() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ResultScreen(total: total),
+      ),
+    );
+  }
+
   void counter() {
     setState(() {});
     checkValue = null;
+    pageNumber == Database.qa.length - 2 ? next = "finish" : next = "next";
     isPressed == true
         ? pageNumber == Database.qa.length - 1
-            ? Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ResultScreen(total: total),
-                ))
+            ? nextButton()
             : pageNumber = pageNumber + 1
         : showDialog(
             context: context,
@@ -107,16 +114,20 @@ class _QuizScreenState extends State<QuizScreen> {
               ListView.separated(
                 separatorBuilder: (context, index) => SizedBox(height: 0),
                 shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
                 itemCount: 4,
                 itemBuilder: (context, index) => Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 50),
                   child: TextButton(
                     style: ButtonStyle(
                       backgroundColor: MaterialStatePropertyAll(
-                        checkValue == index + 1
-                            ? checkValue == Database.qa[pageNumber]["answer"]
-                                ? Colors.green
-                                : Colors.red
+                        isPressed == true
+                            ? checkValue == index + 1
+                                ? checkValue ==
+                                        Database.qa[pageNumber]["answer"]
+                                    ? Colors.green
+                                    : Colors.red
+                                : colorConstant.containerColor
                             : colorConstant.containerColor,
                       ),
                     ),
@@ -153,7 +164,7 @@ class _QuizScreenState extends State<QuizScreen> {
                   onPressed: () {
                     counter();
                   },
-                  child: Text("Next"),
+                  child: Text(next),
                 ),
               ),
               Center(
@@ -168,13 +179,14 @@ class _QuizScreenState extends State<QuizScreen> {
                     onPressed: () {
                       pageNumber = 0;
                       total = 0;
+                      isPressed = false;
                       setState(() {});
                       // pageNumber == 0
                       //     ? pageNumber = 0
                       //     : pageNumber = pageNumber - 1;
                       // total--;
                     },
-                    child: Text("Back"),
+                    child: Text("Restart"),
                   ),
                 ),
               ),

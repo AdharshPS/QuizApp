@@ -12,7 +12,12 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: colorConstant.backgrounColor,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: colorConstant.backgrounColor,
+        elevation: 0,
+      ),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
