@@ -34,7 +34,7 @@ class ResultScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w600,
-                    color: colorConstant.TextColor,
+                    color: colorConstant.TextColorBlack,
                   ),
                 ),
                 Text(
@@ -42,7 +42,7 @@ class ResultScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 50,
                     fontWeight: FontWeight.w900,
-                    color: colorConstant.TextColor,
+                    color: colorConstant.TextColorBlack,
                   ),
                 ),
               ],

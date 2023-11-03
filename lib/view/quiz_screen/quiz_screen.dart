@@ -84,7 +84,7 @@ class _QuizScreenState extends State<QuizScreen> {
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w500,
-                            color: colorConstant.TextColor,
+                            color: colorConstant.TextColorBlack,
                           ),
                         ),
                       ),
@@ -101,7 +101,7 @@ class _QuizScreenState extends State<QuizScreen> {
                       child: Text(
                         "${pageNumber + 1}/${Database.qa.length}",
                         style: TextStyle(
-                          color: colorConstant.TextColor,
+                          color: colorConstant.TextColorBlack,
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
@@ -144,7 +144,7 @@ class _QuizScreenState extends State<QuizScreen> {
                     child: Text(
                       Database.qa[pageNumber]["options"][index],
                       style: TextStyle(
-                          color: colorConstant.TextColor,
+                          color: colorConstant.TextColorBlack,
                           fontWeight: FontWeight.w500),
                     ),
                   ),
@@ -159,8 +159,8 @@ class _QuizScreenState extends State<QuizScreen> {
                   style: ButtonStyle(
                       backgroundColor:
                           MaterialStatePropertyAll(colorConstant.buttonColor),
-                      foregroundColor:
-                          MaterialStatePropertyAll(colorConstant.TextColor)),
+                      foregroundColor: MaterialStatePropertyAll(
+                          colorConstant.TextColorBlack)),
                   onPressed: () {
                     counter();
                   },
@@ -174,8 +174,8 @@ class _QuizScreenState extends State<QuizScreen> {
                     style: ButtonStyle(
                         backgroundColor:
                             MaterialStatePropertyAll(colorConstant.buttonColor),
-                        foregroundColor:
-                            MaterialStatePropertyAll(colorConstant.TextColor)),
+                        foregroundColor: MaterialStatePropertyAll(
+                            colorConstant.TextColorBlack)),
                     onPressed: () {
                       pageNumber = 0;
                       total = 0;
